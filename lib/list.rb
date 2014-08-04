@@ -8,7 +8,11 @@ class List
     @name
   end
 
-  def ==(another_list)
+  def == another_list
     @name = another_list.name
+  end
+
+  def List.all
+    []
   end
 end

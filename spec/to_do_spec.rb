@@ -54,4 +54,14 @@ describe 'List' do
     new_list2 = List.new 'work, work, work'
     expect(new_list).to eq new_list2
   end
+
+  it 'starts off with no lists' do
+    expect(List.all).to eq []
+  end
+
+  it 'saves lists to the database' do
+    list = List.new 'learn to make money'
+    list.save
+    expect(List.all).to eq [list]
+  end
 end
