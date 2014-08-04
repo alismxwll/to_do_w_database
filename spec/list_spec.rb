@@ -1,17 +1,7 @@
-require 'rspec'
-require 'pg'
-require 'list'
-
-DB = PG.connect(:dbname => 'to_do_test')
-RSpec.configure do |config|
-  config.after(:each) do
-    DB.exec("DELETE FROM
-    lists *;")
-  end
-end
+require 'spec_helper'
 
 describe 'List' do
-  it 'initializes with a name' do
+  it 'initializes with a name and nil ID' do
     list = List.new 'classes'
     expect(list).to be_an_instance_of List
   end
@@ -21,9 +11,9 @@ describe 'List' do
     expect(new_list.name).to eq 'work, work, work'
   end
 
-  it 'is the same list as the list with the same name' do
-    new_list = List.new 'work, work, work'
-    new_list2 = List.new 'work, work, work'
+  it 'is the same list as the list with the same id' do
+    new_list = List.new 'work, work, work', 4
+    new_list2 = List.new 'work, work, work', 4
     expect(new_list).to eq new_list2
   end
 

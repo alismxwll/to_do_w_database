@@ -10,7 +10,7 @@ class List
   end
 
   def == another_list
-    @name = another_list.name
+    @id = another_list.id
   end
 
   def self.all
@@ -18,7 +18,8 @@ class List
     lists = []
     results.each do |result|
       name = result['name']
-      lists << List.new(name)
+      id = result['id'].to_i
+      lists << List.new(name, id)
     end
     lists
   end
