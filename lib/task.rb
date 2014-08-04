@@ -27,8 +27,4 @@ class Task
     @name == another_task.name
   end
 
-
-
-
-
 end
