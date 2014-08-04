@@ -38,8 +38,8 @@ describe 'List' do
   end
 
   it 'sets its ID when saved' do
-    list = List.new('Collages', 34)
+    list = List.new('Collages')
     list.save
-    expect(list.id).to eq 34
+    expect(list.id).to be_an_instance_of Fixnum
   end
 end
