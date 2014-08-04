@@ -31,4 +31,12 @@ describe 'Task' do
     task2 = Task.new 'learn juggling', 4
     expect(task1).to eq task2
   end
+
+  it 'deletes a task' do
+    task_twelve = Task.new('Im twelve', 3)
+    task = Task.new('fly away', 3)
+    task.delete
+    Task.all
+    expect(Task.all).to eq [task_twelve]
+  end
 end

@@ -33,4 +33,12 @@ class Task
     @name == another_task.name && @list_id == another_task.list_id
   end
 
+  def delete
+    results = DB.exec("SELECT * FROM tasks;")
+    results.each do |result|
+      if @name == result['name']
+        DB.exec("DELETE FROM tasks (name) VALUES #{name};")
+      end
+    end
+  end
 end
