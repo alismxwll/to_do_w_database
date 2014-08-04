@@ -1,6 +1,7 @@
 class List
 
-  def initialize name
+  def initialize name, id=nil
+    @id = id
     @name = name
   end
 

@@ -42,4 +42,9 @@ describe 'List' do
     list.save
     expect(list.id).to be_an_instance_of Fixnum
   end
+
+  it 'initializes with its database id' do
+    list = List.new('stuffinit', 1)
+    expect(list).to be_an_instance_of List
+  end
 end
